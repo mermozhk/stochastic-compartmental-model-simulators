@@ -1,4 +1,4 @@
-rm(list = ls())
+#rm(list = ls())
 model <- function(edges,initial,parameters, rate_functions, final_time, plot=F){
   
   compartments <- initial$compartment
@@ -33,7 +33,7 @@ model <- function(edges,initial,parameters, rate_functions, final_time, plot=F){
     Tps[[i]] <- t
     cat("Time=",t,"\n")
     output[[i]] <- current_state
-    #print(current_state)
+    
     rates <- sapply(X=1:length(rate_functions),FUN = function(i,rate_functions,states,parameters) do.call(rate_functions[i][[1]],args=list(states,parameters)),states=current_state,parameters=parameters,rate_functions=rate_functions)
     
   }
